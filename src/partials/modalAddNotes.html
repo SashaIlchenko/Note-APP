@@ -1,0 +1,33 @@
+<div class="backdrop is-hidden">
+    <div class="modal-add is-hidden js-modal-add">
+        <h1>Add a new note</h1>
+        <form action="/submit" class="addForm" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="category">Category:
+                <label>
+                    <input type="radio" name="option" value="Task">
+                    Task
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="option" value="Idea">
+                    Idea
+                </label>
+                <br>
+                <label>
+                    <input type="radio" name="option" value="Random Thought">
+                    Random Thought
+                </label>
+            </label>
+
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" rows="4" cols="50" required></textarea>
+
+            <label for="dates">Dates:</label>
+            <input type="text" id="dates" name="dates" required>
+
+            <button type="submit" class="addFormBtn">Add</button>
+        </form>
+    </div>
+</div>

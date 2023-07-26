@@ -1,0 +1,30 @@
+.modal-add {
+    position: relative;
+    width: 280px;
+    z-index: 778;
+
+    margin: 0 auto;
+    padding: 40px 20px;
+    padding-top: 48px;
+
+    background-color: $secondary-border-color;
+    transform: translateY(0px);
+    transition: transform $animation, opacity $animation, visibility $animation;
+
+    @media screen and (min-width: $tablet) {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        width: 704px;
+        height: 552px;
+        padding: 40px 72px 40px 36px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        width: 806px;
+        height: 558px;
+        padding: 40px 12px;
+    }
+}

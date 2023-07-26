@@ -1,1 +1,6 @@
 import './js/renderList'
+import './js/modalAddNote'
+import './js/addNotes'
+import './js/modalChangeNote'
+import './js/changeNote'
+import './js/deleteNote'

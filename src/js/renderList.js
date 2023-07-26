@@ -1,10 +1,9 @@
 import { Notes } from "../data/notes";
-
-const notesList = document.querySelector('.notesList');
-const createButton = document.querySelector('.createButton');
-
-function renderList(obj) {
-    if (obj.length) {
+import dayjs from "dayjs";
+export const notesList = document.querySelector('.notesList');
+localStorage.setItem('notes', JSON.stringify(Notes))
+export function renderList(obj) {
+    if (obj.length > 1) {
         const markup = obj
             .map(
                 ({
@@ -15,10 +14,10 @@ function renderList(obj) {
                     Content,
                     Dates
                 }) => `<li class="noteCard" data="${id}">
-<p>${Name}</p><p>${Created}</p><p>${Category}</p><p>${Content}</p><p>${Dates}
-<button type="button">Change</button>
-<button type="button">Archive</button>
-<button type="button">Delete</button>
+<p>${Name}</p><p>${dayjs(Created, 'YYYY-MM-DD')}</p><p>${Category}</p><p>${Content}</p><p>${Dates}
+<div id="buttonList"><button type="button" class="changeBtn" data="${id}">Change</button>
+<button type="button" class="archiveBtn" data="${id}">Archive</button>
+<button type="button" class="deleteBtn" data="${id}">Delete</button></div>
       </li>
 `
             )
@@ -31,5 +30,15 @@ function renderList(obj) {
         //     textError.classList.remove('is-active');
         // }, 2000);
     }
+}
+export function renderItem({ id, Name, Content, Category, Dates, Created }) {
+    const noteItem = (`<li class="noteCard" data="${id}">
+<p>${Name}</p><p>${dayjs(Created, 'YYYY-MM-DD')}</p><p>${Category}</p><p>${Content}</p><p>${Dates}
+<div id="buttonList"><button type="button" class="changeBtn" data="${id}">Change</button>
+<button type="button" class="archiveBtn" data="${id}" >Archive</button>
+<button type="button" class="deleteBtn" data="${id}">Delete</button></div>
+      </li>
+`);
+    notesList.insertAdjacentHTML('beforeEnd', noteItem);
 }
 renderList(Notes);
