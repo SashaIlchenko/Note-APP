@@ -1,4 +1,4 @@
-Notes App
+      Notes App
 The Notes App is a simple web application that allows users to create, view, archive, and unarchive notes. Users can add new notes, which will be displayed in the active notes list. They can then choose to archive specific notes, which will move the notes to the archived notes list, making them hidden from the active notes list. However, users can still access and unarchive the archived notes to bring them back to the active notes list.
 
 Features
