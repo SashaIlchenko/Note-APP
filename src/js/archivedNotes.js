@@ -1,55 +1,72 @@
 import { Notes } from "../data/notes";
 import { renderList, notesList } from "./renderList";
 import { renderArchiveList } from "./renderArhiveList";
+import { renderSummaryTable } from "./summaryTable";
+import { onDelete } from "./deleteNote";
 let archivedNotes = [];
+let notes = [...Notes]
 
-const archiveBtn = document.querySelectorAll('.archiveBtn');
 const showArchiveBtn = document.querySelector('.showArhiveBtn');
 const unArchiveBtn = document.querySelectorAll('.unArchiveBtn');
-
+const archiveTable = document.querySelector('.archiveTable');
+const startRow = document.querySelector('.startRow')
 showArchiveBtn.addEventListener('click', onShownBtnClick)
-archiveBtn.forEach(button => {
-    button.addEventListener('click', onBtnArchiveClick)
-    console.log(button)
-});
-unArchiveBtn.forEach(button => {
-    button.addEventListener('click', onBtnUnarchiveClick)
-    console.log(button)
-});
+notesList.addEventListener('click', onBtnArchiveClick)
+archiveTable.addEventListener('click', onBtnUnarchiveClick)
+
 function archiveNote(index) {
-    const archivedNote = Notes.splice(index, 1)[0];
+    const archivedNote = notes.splice(index, 1)[0];
     archivedNotes.push(archivedNote);
     notesList.innerHTML = '';
-    renderList(Notes)
+    renderList(notes)
+    startRow.classList.add('is-hidden')
+    renderSummaryTable(archivedNotes.id, notes.length, archivedNotes.length)
 }
 function onBtnArchiveClick(e) {
-    const noteItem = e.currentTarget;
-    const archivedItem = noteItem.getAttribute('data');
-    const itemIndex = Notes.findIndex(item => item.id === archivedItem);
-    if (itemIndex !== -1) {
-        archiveNote(itemIndex)
-    } else {
-        alert("Item not found.")
+    const noteItem = e.target;
+    if (noteItem.nodeName !== "svg" && noteItem.nodeName !== "path") {
+        return
+    }
+    else if (noteItem.id === "archive") {
+        const archivedItem = noteItem.parentElement.getAttribute('data');
+        const itemIndex = notes.findIndex(item => item.id === archivedItem);
+        if (itemIndex !== -1) {
+            archiveNote(itemIndex)
+        } else {
+            alert("Item not found.")
+        }
     }
 }
-
 function onShownBtnClick() {
+    archiveTable.classList.remove('is-hidden')
     renderArchiveList(archivedNotes)
 }
 function unArchiveNote(index) {
-    const unarchivedNote = archivedNotes.splice(index, 1)[0];
-    Notes.push(unarchivedNote);
+    const unarchivedNote = archivedNotes.splice(index, 1);
+    notes.push(unarchivedNote);
     notesList.innerHTML = '';
-    renderList(Notes)
+    renderList(notes)
+    renderSummaryTable(archivedNotes.id, notes.length, archivedNotes.length)
+
 }
-function onBtnUnarchiveClick() {
-    const noteItem = e.currentTarget;
-    const archivedItem = noteItem.getAttribute('data');
+function onBtnUnarchiveClick(e) {
+    const noteItem = e.target;
+    if (noteItem.nodeName !== "svg" && noteItem.nodeName !== "path") {
+        return
+    }
+    else if (noteItem.id === "archive") {
+        onArchive(noteItem)
+    }
+}
+
+function onArchive(item) {
+    const archivedItem = item.parentElement.getAttribute('data');
+    console.log(archivedItem)
     const itemIndex = archivedNotes.findIndex(item => item.id === archivedItem);
+    console.log(itemIndex)
     if (itemIndex !== -1) {
         unArchiveNote(itemIndex)
     } else {
         alert("Item not found.")
     }
 }
-

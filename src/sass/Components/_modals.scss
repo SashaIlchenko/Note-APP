@@ -1,0 +1,35 @@
+.addForm,
+.changeForm {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.labelText {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.inputText {
+    padding: 8px;
+    height: 50px;
+    font-size: 16px;
+}
+
+.contentText {
+    padding: 8px;
+}
+
+.addFormBtn,
+.changeFormBtn {
+    width: 150px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 16px;
+    color: #545454;
+    height: 30px;
+    background-color: bisque;
+    font-size: 18px;
+}

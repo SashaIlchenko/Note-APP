@@ -19,5 +19,4 @@ function onBackdropClick(event) {
         backdgop.classList.add('is-hidden')
         document.body.classList.remove('no-scroll');
     }
-
 }

@@ -19,7 +19,6 @@
     height: 30px;
     background-color: bisque;
     font-size: 18px;
-
 }
 
 .createButton {
@@ -27,4 +26,18 @@
     margin-left: auto;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.archiveTable,
+.mainTable,
+.summaryList {
+    margin-bottom: 30px;
+    width: 84vw;
+}
+
+.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-100px);
 }

@@ -1,9 +1,8 @@
-import { renderList } from "./renderList";
-
+import { renderList, notesList } from "./renderList";
+import { Notes } from "../data/notes";
 const form = document.querySelector('.changeForm');
-
+let notes = [...Notes]
 form.addEventListener('submit', changeNotes);
-const notes = JSON.parse(localStorage.getItem('notes'))
 const currentDate = new Date();
 function changeNotes(e) {
     e.preventDefault();
@@ -19,5 +18,6 @@ function changeNotes(e) {
     } else {
         alert("Item not found.");
     }
+    notesList.innerHTML = '';
     renderList(notes)
 }

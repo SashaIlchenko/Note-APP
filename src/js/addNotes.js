@@ -18,7 +18,7 @@ function addNotes(e) {
         notes.push([...Notes, { id, Name, Content, Category, Dates, Created }])
         renderItem({ id, Name, Content, Category, Dates, Created })
         // renderList(notes)
-        localStorage.setItem('notes', JSON.stringify(notes))
+        // localStorage.setItem('notes', JSON.stringify(notes))
     } else {
         alert('Please type all fields')
     }
