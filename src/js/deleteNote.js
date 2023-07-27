@@ -9,7 +9,6 @@ notesList.addEventListener('click', onBtnDeleteClick)
 deleteBtnAll.addEventListener('click', onDeleteAll)
 function onBtnDeleteClick(e) {
     const noteItem = e.target;
-    console.log(e)
     if (noteItem.nodeName !== "svg" && noteItem.nodeName !== "path") {
         return
     } else if (noteItem.id === "delete") {
@@ -21,7 +20,6 @@ function onBtnDeleteClick(e) {
 
 function onDeleteAll(e) {
     notesList.innerHTML = '';
-    console.log(e)
 }
 export function onDelete(item) {
     const deletedItem = item.parentElement.getAttribute('data');

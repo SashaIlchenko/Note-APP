@@ -2,12 +2,11 @@ import { Notes } from "../data/notes";
 import { renderList, notesList } from "./renderList";
 import { renderArchiveList } from "./renderArhiveList";
 import { renderSummaryTable } from "./summaryTable";
-import { onDelete } from "./deleteNote";
+
 let archivedNotes = [];
 let notes = [...Notes]
 
 const showArchiveBtn = document.querySelector('.showArhiveBtn');
-const unArchiveBtn = document.querySelectorAll('.unArchiveBtn');
 const archiveTable = document.querySelector('.archiveTable');
 const startRow = document.querySelector('.startRow')
 showArchiveBtn.addEventListener('click', onShownBtnClick)
@@ -47,6 +46,7 @@ function unArchiveNote(index) {
     notesList.innerHTML = '';
     renderList(notes)
     renderSummaryTable(archivedNotes.id, notes.length, archivedNotes.length)
+    renderArchiveList(archivedNotes);
 
 }
 function onBtnUnarchiveClick(e) {
@@ -60,10 +60,8 @@ function onBtnUnarchiveClick(e) {
 }
 
 function onArchive(item) {
-    const archivedItem = item.parentElement.getAttribute('data');
-    console.log(archivedItem)
+    const archivedItem = item.parentElement.parentElement.getAttribute('data');
     const itemIndex = archivedNotes.findIndex(item => item.id === archivedItem);
-    console.log(itemIndex)
     if (itemIndex !== -1) {
         unArchiveNote(itemIndex)
     } else {

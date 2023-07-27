@@ -7,5 +7,5 @@ export function renderSummaryTable(id, active, archive) {
 <td class="table-item">${archive}</td>
       </tr>
 `);
-    summaryList.insertAdjacentHTML('afterBegin', markup)
+    summaryList.innerHTML = markup;
 }
