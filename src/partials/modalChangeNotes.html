@@ -1,0 +1,30 @@
+<div class=" is-hidden js-backdrop">
+    <div class="modal-change is-hidden js-modal-change">
+        <h1>Change your note</h1>
+        <form action="/submit" class="changeForm" method="POST">
+            <label class="labelText" for="name">Name:</label>
+            <input class="labelText" type="text" id="name" name="name" required>
+            <label class="labelText" for="category">Category:
+                <label>
+                    <input type="radio" name="option" value="Task">
+                    Task
+                </label>
+
+                <label>
+                    <input type="radio" name="option" value="Idea">
+                    Idea
+                </label>
+
+                <label>
+                    <input type="radio" name="option" value="Random Thought">
+                    Random Thought
+                </label>
+            </label>
+
+            <label class="labelText" for="content">Content:</label>
+            <textarea class='contentText' id="content" name="content" rows="4" cols="50" required></textarea>
+
+            <button type="submit" class="changeFormBtn">Change</button>
+        </form>
+    </div>
+</div>
