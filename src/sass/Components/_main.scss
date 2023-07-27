@@ -1,0 +1,30 @@
+.table-header {
+    padding: 15px;
+    width: 90vw;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #8c8c8c;
+    border-radius: 3px;
+}
+
+.table-title {
+    font-size: 20px;
+    color: bisque;
+}
+
+.main-button {
+    border-radius: 16px;
+    color: #545454;
+    height: 30px;
+    background-color: bisque;
+    font-size: 18px;
+
+}
+
+.createButton {
+    display: block;
+    margin-left: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

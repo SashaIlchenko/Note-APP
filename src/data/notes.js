@@ -1,4 +1,4 @@
-export const Notes = [
+export let Notes = [
     {
         "Created": "2023-07-24T20:06:19.578Z",
         "Name": "Shopping list",
@@ -55,45 +55,6 @@ export const Notes = [
         "Dates": "Dates 7",
         "id": "7"
     },
-    {
-        "Created": "2023-07-25T00:08:10.303Z",
-        "Name": "To call my boss",
-        "Category": "Task",
-        "Content": "Ask him about dedlines",
-        "Dates": "Dates 8",
-        "id": "8"
-    },
-    {
-        "Created": "2023-07-25T07:15:08.661Z",
-        "Name": "Tickets",
-        "Category": "Task",
-        "Content": "To buy tickets to the cinema",
-        "Dates": "Dates 9",
-        "id": "9"
-    },
-    {
-        "Created": "2023-07-25T09:37:12.649Z",
-        "Name": "Cucumber consists of 80% of water",
-        "Category": "Random Thought",
-        "Content": "Is human cucumber too?",
-        "Dates": "Dates 10",
-        "id": "10"
-    },
-    {
-        "Created": "2023-07-25T13:04:11.835Z",
-        "Name": "Project",
-        "Category": "Task",
-        "Content": "To do my project until tomorrow",
-        "Dates": "Dates 11",
-        "id": "11"
-    },
-    {
-        "Created": "2023-07-25T09:11:10.099Z",
-        "Name": "Needs",
-        "Category": "Random Thought",
-        "Content": "Our needs affect to our lifes",
-        "Dates": "Dates 12",
-        "id": "12"
-    }
+
 ]
 

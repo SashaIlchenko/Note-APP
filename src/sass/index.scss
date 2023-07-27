@@ -1,6 +1,10 @@
 @import './utils/mixins';
 
 @import './common';
+@import './Components/container';
+@import './Components/main';
+
 @import './Components/backdrop';
 @import './Components/modalAddNotes';
-@import './Components//modalChangeNotes'
+@import './Components//modalChangeNotes';
+@import './Components/noteList'

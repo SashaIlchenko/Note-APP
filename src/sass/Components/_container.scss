@@ -1,0 +1,20 @@
+.container {
+    padding-left: 30px;
+    padding-right: 30px;
+
+    @media screen and (max-width: 767px) {
+        max-width: 480px;
+    }
+
+    @include tablet {
+        width: $tablet;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    @include desktop {
+        width: $desktop;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}

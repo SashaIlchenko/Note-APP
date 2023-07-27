@@ -1,14 +1,34 @@
-<section>
-    <div>
-        <p>Name</p>
-        <p>Created</p>
-        <p>Category</p>
-        <p>Content</p>
-        <p>Dates</p>
-        <button type="button">Archive</button>
-        <button type="button">Delete</button>
-    </div>
-    <ul class="notesList"></ul>
-    <button type="button" class="createButton">Create new</button>
-    <ul class="achiveList"></ul>
+<section class="container">
+    <table>
+        <thead class="table-header">
+            <th class="table-title">Name</th>
+            <th class="table-title">Created</th>
+            <th class="table-title">Category</th>
+            <th class="table-title">Content</th>
+            <th class="table-title">Dates</th>
+            <th><button type="button" class="main-button showArhiveBtn"><img src="./images/095-box-add.svg" /> </button>
+                <button type="button" class="main-button deleteBtnAll"><img src="./images/173-bin.svg" /></button>
+            </th>
+        </thead>
+        <tbody class="notesList"></tbody>
+    </table>
+    <button type="button" class="createButton main-button">Create new</button>
+    <table>
+        <thead class="table-header">
+            <th class="table-title">Name</th>
+            <th class="table-title">Created</th>
+            <th class="table-title">Category</th>
+            <th class="table-title">Content</th>
+            <th class="table-title">Dates</th>
+        </thead>
+        <tbody class="archiveList"></tbody>
+    </table>
+    <table class="summaryList">
+        <thead class="table-header">
+            <th class="table-title">Note category</th>
+            <th class="table-title"> Active</th>
+            <th class="table-title">Archived</th>
+        </thead>
+        <tbody class="archivedList"></tbody>
+    </table>
 </section>

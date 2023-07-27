@@ -6,7 +6,6 @@ const modalNotes = document.querySelector('.js-modal-change');
 backdgop.addEventListener('click', onBackdropClick);
 
 changeButtons.forEach(button => {
-    ('click', onBtnClick)
     button.addEventListener('click', onBtnClick)
 })
 
