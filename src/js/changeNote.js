@@ -1,10 +1,11 @@
 import { renderList, notesList } from "./renderList";
 import { Notes } from "../data/notes";
+import { backdgop, modalNotes } from "./modalChangeNote";
+import { addedNotes } from "./deleteNote";
 const form = document.querySelector('.changeForm');
-let notes = [...Notes]
+let notes = [...Notes, ...addedNotes]
 form.addEventListener('submit', changeNotes);
 const currentDate = new Date();
-
 
 function changeNotes(e) {
     e.preventDefault();
@@ -21,4 +22,8 @@ function changeNotes(e) {
     }
     notesList.innerHTML = '';
     renderList(notes)
+    modalNotes.classList.add('is-hidden')
+    backdgop.classList.add('is-hidden')
+    this.reset();
+
 }

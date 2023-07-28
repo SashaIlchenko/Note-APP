@@ -2,13 +2,12 @@ import { Notes } from "../data/notes";
 import { renderList, notesList } from "./renderList";
 import { renderArchiveList } from "./renderArhiveList";
 import { renderSummaryTable } from "./summaryTable";
-
+import { addedNotes } from "./deleteNote";
 let archivedNotes = [];
-let notes = [...Notes]
+let notes = [...Notes, ...addedNotes]
 
 const showArchiveBtn = document.querySelector('.showArhiveBtn');
 const archiveTable = document.querySelector('.archiveTable');
-const startRow = document.querySelector('.startRow')
 showArchiveBtn.addEventListener('click', onShownBtnClick)
 notesList.addEventListener('click', onBtnArchiveClick)
 archiveTable.addEventListener('click', onBtnUnarchiveClick)
@@ -18,7 +17,6 @@ function archiveNote(index) {
     archivedNotes.push(archivedNote);
     notesList.innerHTML = '';
     renderList(notes)
-    startRow.classList.add('is-hidden')
     renderSummaryTable(archivedNotes, notes)
 }
 function onBtnArchiveClick(e) {
@@ -34,6 +32,7 @@ function onBtnArchiveClick(e) {
         } else {
             alert("Item not found.")
         }
+        renderArchiveList(archivedNotes)
     }
 }
 function onShownBtnClick() {
@@ -42,9 +41,11 @@ function onShownBtnClick() {
 
 }
 function unArchiveNote(index) {
-    const unarchivedNote = archivedNotes.splice(index, 1);
+    const [unarchivedNote] = archivedNotes.splice(index, 1);
+
     notes.push(unarchivedNote);
     notesList.innerHTML = '';
+
     renderList(notes)
     renderSummaryTable(archivedNotes, notes)
     renderArchiveList(archivedNotes);
@@ -57,7 +58,6 @@ function onBtnUnarchiveClick(e) {
     }
     else if (noteItem.id === "archive") {
         onArchive(noteItem)
-
     }
 }
 

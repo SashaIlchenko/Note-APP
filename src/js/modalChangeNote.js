@@ -1,7 +1,7 @@
 const notesList = document.querySelector('.notesList')
 
 export const backdgop = document.querySelector('.js-backdrop');
-const modalNotes = document.querySelector('.js-modal-change');
+export const modalNotes = document.querySelector('.js-modal-change');
 backdgop.addEventListener('click', onBackdropClick);
 
 notesList.addEventListener('click', onBtnClick)
