@@ -18,7 +18,7 @@ function addNotes(e) {
         const Dates = currentDate.toISOString();
         const id = nanoid();
         addNotesArr.push({ id, Name, Content, Category, Dates, Created })
-        localStorage.setItem('addedNotes', JSON.stringify(addNotesArr))
+        sessionStorage.setItem('addedNotes', JSON.stringify(addNotesArr))
         renderItem({ id, Name, Content, Category, Dates, Created })
         modalNotes.classList.add('is-hidden')
         backdgop.classList.add('is-hidden')
