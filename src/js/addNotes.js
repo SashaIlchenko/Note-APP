@@ -1,10 +1,9 @@
-import { Notes } from "../data/notes";
+
 import { renderItem } from "./renderList";
 import { backdgop, modalNotes } from "./modalAddNote";
-import { nanoid } from "nanoid";
-
+import { customAlphabet } from 'nanoid';
+const nanoid = customAlphabet('1234567890abcdef', 7)
 const form = document.querySelector('.addForm')
-// let notes = [...Notes];
 let addNotesArr = [];
 form.addEventListener('submit', addNotes)
 const currentDate = new Date();

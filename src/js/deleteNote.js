@@ -3,7 +3,6 @@ import { renderList } from "./renderList";
 import { notesList } from "./renderList";
 export let addedNotes = JSON.parse(localStorage.getItem('addedNotes')) || []
 let notes = [...Notes, ...addedNotes]
-console.log(notes)
 const deleteBtnAll = document.querySelector('.deleteBtnAll');
 notesList.addEventListener('click', onBtnDeleteClick)
 
@@ -23,7 +22,8 @@ function onDeleteAll(e) {
     notesList.innerHTML = '';
 }
 export function onDelete(item) {
-    const deletedItem = item.parentElement.parentElement.getAttribute('data');
+    console.log(item)
+    const deletedItem = item.getAttribute('data');
     const itemIndex = notes.findIndex(item => item.id === deletedItem);
     console.log(itemIndex, deletedItem)
     if (itemIndex !== -1) {
