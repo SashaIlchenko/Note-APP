@@ -62,7 +62,7 @@ function onBtnUnarchiveClick(e) {
 }
 
 function onArchive(item) {
-    const archivedItem = item.parentElement.parentElement.getAttribute('data');
+    const archivedItem = item.getAttribute('data');
     const itemIndex = archivedNotes.findIndex(item => item.id === archivedItem);
     if (itemIndex !== -1) {
         unArchiveNote(itemIndex)
