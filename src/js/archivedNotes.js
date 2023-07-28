@@ -19,7 +19,7 @@ function archiveNote(index) {
     notesList.innerHTML = '';
     renderList(notes)
     startRow.classList.add('is-hidden')
-    renderSummaryTable(archivedNotes.id, notes.length, archivedNotes.length)
+    renderSummaryTable(archivedNotes, notes)
 }
 function onBtnArchiveClick(e) {
     const noteItem = e.target;
@@ -39,13 +39,14 @@ function onBtnArchiveClick(e) {
 function onShownBtnClick() {
     archiveTable.classList.remove('is-hidden')
     renderArchiveList(archivedNotes)
+
 }
 function unArchiveNote(index) {
     const unarchivedNote = archivedNotes.splice(index, 1);
     notes.push(unarchivedNote);
     notesList.innerHTML = '';
     renderList(notes)
-    renderSummaryTable(archivedNotes.id, notes.length, archivedNotes.length)
+    renderSummaryTable(archivedNotes, notes)
     renderArchiveList(archivedNotes);
 
 }
@@ -56,6 +57,7 @@ function onBtnUnarchiveClick(e) {
     }
     else if (noteItem.id === "archive") {
         onArchive(noteItem)
+
     }
 }
 
@@ -68,3 +70,4 @@ function onArchive(item) {
         alert("Item not found.")
     }
 }
+
