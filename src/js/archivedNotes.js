@@ -25,7 +25,7 @@ function onBtnArchiveClick(e) {
         return
     }
     else if (noteItem.id === "archive") {
-        const archivedItem = noteItem.parentElement.getAttribute('data');
+        const archivedItem = noteItem.getAttribute('data');
         const itemIndex = notes.findIndex(item => item.id === archivedItem);
         if (itemIndex !== -1) {
             archiveNote(itemIndex)

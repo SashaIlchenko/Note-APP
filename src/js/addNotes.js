@@ -1,10 +1,9 @@
-import { Notes } from "../data/notes";
+
 import { renderItem } from "./renderList";
 import { backdgop, modalNotes } from "./modalAddNote";
 import { nanoid } from "nanoid";
 
 const form = document.querySelector('.addForm')
-// let notes = [...Notes];
 let addNotesArr = [];
 form.addEventListener('submit', addNotes)
 const currentDate = new Date();
@@ -19,7 +18,7 @@ function addNotes(e) {
         const Dates = currentDate.toISOString();
         const id = nanoid();
         addNotesArr.push({ id, Name, Content, Category, Dates, Created })
-        localStorage.setItem('addedNotes', JSON.stringify(addNotesArr))
+        sessionStorage.setItem('addedNotes', JSON.stringify(addNotesArr))
         renderItem({ id, Name, Content, Category, Dates, Created })
         modalNotes.classList.add('is-hidden')
         backdgop.classList.add('is-hidden')
