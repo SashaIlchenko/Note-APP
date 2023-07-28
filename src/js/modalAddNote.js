@@ -1,7 +1,7 @@
 const createButton = document.querySelector('.createButton');
 
 export const backdgop = document.querySelector('.backdrop');
-const modalNotes = document.querySelector('.js-modal-add');
+export const modalNotes = document.querySelector('.js-modal-add');
 
 createButton.addEventListener('click', onBtnClick);
 backdgop.addEventListener('click', onBackdropClick);

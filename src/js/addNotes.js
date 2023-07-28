@@ -1,25 +1,31 @@
 import { Notes } from "../data/notes";
-import { renderItem, renderList } from "./renderList";
+import { renderItem } from "./renderList";
+import { backdgop, modalNotes } from "./modalAddNote";
+import { nanoid } from "nanoid";
 
 const form = document.querySelector('.addForm')
-let notes = [];
+// let notes = [...Notes];
+let addNotesArr = [];
 form.addEventListener('submit', addNotes)
 const currentDate = new Date();
 function addNotes(e) {
     e.preventDefault();
     const selectedOption = document.querySelector('input[name="option"]:checked');
     if (selectedOption) {
-        const id = currentDate.getMilliseconds();
-        const Name = form[0].value.trim();
-        const Content = form[4].value.trim();
-        const Category = selectedOption.value;
-        const Dates = currentDate.toISOString();
         const Created = currentDate.toISOString();
-        notes.push([...Notes, { id, Name, Content, Category, Dates, Created }])
+        const Name = form[0].value.trim();
+        const Category = selectedOption.value;
+        const Content = form[4].value.trim();
+        const Dates = currentDate.toISOString();
+        const id = nanoid();
+        addNotesArr.push({ id, Name, Content, Category, Dates, Created })
+        localStorage.setItem('addedNotes', JSON.stringify(addNotesArr))
         renderItem({ id, Name, Content, Category, Dates, Created })
-        // renderList(notes)
-        // localStorage.setItem('notes', JSON.stringify(notes))
+        modalNotes.classList.add('is-hidden')
+        backdgop.classList.add('is-hidden')
+
     } else {
         alert('Please type all fields')
     }
+    this.reset();
 }
